@@ -7,7 +7,7 @@ package com.mycompany.Praktik_2;
 
 /**
  *
- * @author muhammad raihan ilyasman
+ * @author Muhammad Faiz Al Khairi
  */
 public class Praktik_2 {
    public static void main(String[] args) {
@@ -18,10 +18,10 @@ public class Praktik_2 {
        *Menampilkan Nama dan Menampilkan Umur
        */
        String nama;
-       nama = "Muhammad Raihan Ilyasman";
+       nama = "Muhammad Faiz Al Khairi";
        
        int umur;
-       umur = 19;
+       umur = 20;
        //perintah menampilkan nama dan umur
        System.out.println("Perkenalkan Nama saya " + nama);
        System.out.println("lalu Umur saya " + umur);
@@ -49,3 +49,4 @@ public class Praktik_2 {
        System.out.println("Nilai final Pi adalah = " + PI);
    }
 }
+
