@@ -109,11 +109,12 @@ public class Praktikum4 {
 
         // Nested loop
         char kursi = 'A';
-
         for (int j = 0; j < 3; j++) {
-            for (int j2 = 0; j2 < 5; j2++) {
+            for (int j2 = 1; j2 < 5; j2++) {
                 System.out.print(kursi + "" + j2 + " ");
             }
+            System.out.println();
+            kursi++;
         }
 
         // for (int j3 = 0; int j4; j3 < 5; j4 < 5 ; j3++ ; j4++ ) {
