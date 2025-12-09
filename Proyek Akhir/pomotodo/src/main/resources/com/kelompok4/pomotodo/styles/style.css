@@ -1,0 +1,259 @@
+/* =================================================================
+   PIXEL ART THEME SHEET
+   -----------------------------------------------------------------
+   Style ini menggunakan JavaFX CSS (bukan CSS Web standar).
+   Semua property harus diawali dengan prefix "-fx-".
+
+   Konsep Visual:
+   - Warna Utama: Hijau Hutan (#2d5016) & Hijau Pastel (#a8d5ba)
+   - Font: Press Start 2P (Retro/Pixel)
+   - Bentuk: Rounded borders dengan garis tebal untuk kesan kartun/game.
+   ================================================================= */
+
+/* .root adalah selector global (mirip tag <body> di HTML).
+   Semua turunan akan mewarisi font ini kecuali ditimpa.
+*/
+.root {
+    /* Menggunakan font pixel yang sudah diload di Java Code */
+    -fx-font-family: "Press Start 2P", monospace;
+    /* Background transparan agar bisa ditumpuk di atas ImageView background */
+    -fx-background-color: transparent;
+}
+
+/* ==========================
+   MODE SELECTION BUTTONS
+   (Pomodoro, Short Break, Long Break)
+   ========================== */
+.mode-button {
+    -fx-background-color: #a8d5ba; /* Hijau muda */
+    -fx-text-fill: #2d5016;       /* Teks hijau tua */
+    -fx-background-radius: 8px;   /* Sudut tumpul */
+
+    /* Border tebal adalah kunci gaya pixel art/kartun */
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+
+    /* Mengubah kursor jadi tangan saat di-hover (UX Clue: ini bisa diklik) */
+    -fx-cursor: hand;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+
+/* State: Hover (Saat mouse melayang di atas tombol) */
+.mode-button:hover {
+    -fx-background-color: #c5e8d3; /* Jadi lebih terang (Visual Feedback) */
+}
+
+/* State: Selected (Saat tombol aktif/dipilih)
+   PENTING: Ini aktif karena kita pakai ToggleButton + ToggleGroup di Java.
+*/
+.mode-button:selected {
+    -fx-background-color: #6d9d7f; /* Jadi hijau gelap */
+    -fx-text-fill: white;          /* Teks jadi putih biar kontras */
+    -fx-border-color: #2d5016;
+}
+
+/* Menargetkan Label di dalam tombol yang sedang selected */
+.mode-button:selected .mode-button-text {
+    -fx-text-fill: white;
+}
+
+/* Class khusus untuk teks label di dalam tombol mode */
+.mode-button-text {
+    -fx-text-fill: #2d5016;
+    -fx-alignment: center;
+}
+
+/* ==========================
+   TIMER DISPLAY PANEL
+   ========================== */
+.timer-panel {
+    /* Panel pembungkus waktu utama */
+    -fx-background-color: #a8d5ba;
+    -fx-background-radius: 12px;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+}
+
+.timer-label {
+    -fx-text-fill: #333333; /* Warna abu gelap (hampir hitam) agar mudah dibaca */
+    -fx-alignment: center;
+}
+
+.set-progress-label {
+    -fx-text-fill: #2d5016;
+    -fx-alignment: center;
+}
+
+/* ==========================
+   CONTROLS (START & RESET)
+   ========================== */
+.start-button {
+    -fx-background-color: white; /* Putih agar menonjol sebagai aksi utama */
+    -fx-text-fill: #2d5016;
+    -fx-background-radius: 8px;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+    -fx-padding: 8px 16px;
+}
+
+.start-button:hover {
+    -fx-background-color: #f0f0f0; /* Feedback visual subtle */
+}
+
+/* State: Pressed (Saat tombol ditekan tahan) */
+.start-button:pressed {
+    -fx-background-color: #e0e0e0; /* Efek "mendelep" ke dalam */
+}
+
+.reset-button {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5016;
+
+    /* Membuat tombol jadi bulat sempurna */
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%; /* Border juga harus di-radius 50% */
+
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0px;
+}
+
+.reset-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.reset-button:pressed {
+    -fx-background-color: #e0e0e0;
+}
+
+/* ==========================
+   TASK SECTION (TO-DO LIST)
+   ========================== */
+.task-section {
+    /* Wadah utama list tugas */
+    -fx-background-color: #a8d5ba;
+    -fx-background-radius: 12px;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-padding: 12px;
+}
+
+/* Customizing JavaFX CheckBox */
+.task-checkbox {
+    -fx-background-color: white;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+}
+
+/* Mengubah warna tanda centang (mark) */
+.task-checkbox:selected {
+    -fx-background-color: white;
+    -fx-mark-color: black; /* Default JavaFX biasanya hijau/biru, kita ubah hitam */
+}
+
+.task-label {
+    -fx-text-fill: #333333;
+    -fx-padding: 2px 0px;
+}
+
+.add-task-label {
+    -fx-text-fill: #333333;
+    -fx-cursor: hand; /* Biar user tau tanda "+" bisa diklik */
+}
+
+/* Input field saat menambah tugas */
+.task-input {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5016;
+    -fx-background-radius: 4px;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 4px 8px;
+}
+
+/* State: Focused (Saat kursor aktif mengetik di dalam) */
+.task-input:focused {
+    -fx-border-color: #4d7026; /* Border jadi lebih terang/jelas */
+    -fx-border-width: 2px;     /* Border menebal memberi fokus visual */
+}
+
+/* ==========================
+   SCROLL PANE (TRICKY PART)
+   JavaFX ScrollPane bawaannya abu-abu jelek. Ini cara menghilangkannya.
+   ========================== */
+.scroll-pane {
+    /* Menghapus background default container scroll */
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+/* Viewport adalah area "kaca" tempat konten terlihat */
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Batang Scroll vertikal */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px; /* Lebar scrollbar */
+}
+
+/* Thumb adalah kotak geser di dalam scrollbar */
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #6d9d7f; /* Warna hijau senada tema */
+    -fx-background-radius: 5px;    /* Dibuat lonjong */
+}
+
+/* Track adalah jalur lintasan scrollbar */
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent; /* Track dibuat invisible */
+}
+
+/* ==========================
+   SETTINGS DIALOG & BUTTON
+   ========================== */
+.settings-button {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5016;
+    -fx-background-radius: 50%; /* Tombol bulat */
+    -fx-border-color: #2d5016;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0px;
+}
+
+.settings-button:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+.settings-button:pressed {
+    -fx-background-color: #e0e0e0;
+}
+
+.settings-title {
+    -fx-text-fill: #2d5016;
+    -fx-alignment: center;
+}
+
+.settings-input {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5016;
+    -fx-background-radius: 4px;
+    -fx-border-color: #2d5016;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 4px 8px;
+}
+
+.settings-input:focused {
+    -fx-border-color: #4d7026;
+    -fx-border-width: 2px;
+}
